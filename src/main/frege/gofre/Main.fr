@@ -1,0 +1,13 @@
+package gofre.Main where
+
+currentDirectory :: IO String
+currentDirectory = return "./test_folder"
+
+main :: [String] -> IO ()
+main args = do
+  currDir <- currentDirectory
+  dispatch currDir args
+
+dispatch :: String -> [String] -> IO ()
+dispatch pwd ["pwd"] = println pwd
+dispatch _ _ = println "Unrecognized command"
